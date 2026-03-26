@@ -1,0 +1,12 @@
+# Override language detection for GitHub
+*.sol linguist-detectable=true
+*.ts linguist-detectable=false
+*.tsx linguist-detectable=false
+*.js linguist-detectable=false
+*.jsx linguist-detectable=false
+*.css linguist-detectable=false
+*.json linguist-detectable=false
+
+# Mark Solidity as the primary language
+contracts/** linguist-language=Solidity
+*.sol linguist-language=Solidity

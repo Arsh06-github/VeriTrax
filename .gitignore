@@ -1,0 +1,84 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Kiro development documentation (exclude from git)
+ABOUT_PAGE_CREATED.md
+ABOUT_PAGE_FIXES.md
+ARCHITECTURE.md
+AUTHENTICATION_FIXES.md
+CHANGES_SUMMARY.md
+CUSTOM_DESIGN_APPLIED.md
+DASHBOARD_PROFILE_FIXED.md
+DEMO_PAGE_CREATED.md
+ENHANCED_GLASS_EFFECTS.md
+ERRORS_FIXED.md
+FIREBASE_INTEGRATED.md
+FIREBASE_NOT_CONFIGURED.md
+FIREBASE_SETUP_INSTRUCTIONS.md
+GLASS_EFFECTS_APPLIED.md
+GLASS_EFFECTS_COMPLETE.md
+GLASS_EFFECTS_EXAMPLE.md
+GLASS_EFFECTS_GUIDE.md
+GLASS_EFFECTS_QUICK_REF.md
+GLASS_EFFECTS_SUMMARY.md
+IMPLEMENTATION_CHECKLIST.md
+INDIAN_LOCALIZATION_COMPLETE.md
+PROJECT_SUMMARY.md
+QUICK_FIX_SUMMARY.md
+QUICK_START.md
+README_FIRST.md
+SETUP.md
+START_HERE_VERITRAX.md
+START_HERE.md
+TRANSPARENT_GLASS_EFFECT.md
+UI_THEME_FIXED.md
+VERITRAX_INTEGRATION_COMPLETE.md
+VERITRAX_SETUP.md
+WALLET_CONNECTION_FIX.md
+WALLET_DISCONNECT_FEATURE.md
+
+# Keep these important files:
+# README.md
+# DEPLOYMENT_CHECKLIST.md
+# VERCEL_DEPLOYMENT_GUIDE.md
+# VERCEL_DEPLOYMENT_SUMMARY.md
+# READY_FOR_VERCEL.md
+# START_DEPLOYMENT_HERE.md
+# .env.local.example
+# .env.production.example
+# vercel.json

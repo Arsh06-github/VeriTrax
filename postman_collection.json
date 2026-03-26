@@ -1,0 +1,365 @@
+{
+  "info": {
+    "name": "Veritrax Multi-Chain API Collection",
+    "description": "Complete API testing collection for Algorand, Solana, Ethereum, and all integrated services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Algorand",
+      "item": [
+        {
+          "name": "Get Account Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://testnet-api.algonode.cloud/v2/accounts/{{ALGORAND_ADDRESS}}",
+              "protocol": "https",
+              "host": ["testnet-api", "algonode", "cloud"],
+              "path": ["v2", "accounts", "{{ALGORAND_ADDRESS}}"]
+            },
+            "description": "Get Algorand account information including balance and assets"
+          }
+        },
+        {
+          "name": "Get Transaction History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://testnet-idx.algonode.cloud/v2/accounts/{{ALGORAND_ADDRESS}}/transactions?limit=10",
+              "protocol": "https",
+              "host": ["testnet-idx", "algonode", "cloud"],
+              "path": ["v2", "accounts", "{{ALGORAND_ADDRESS}}", "transactions"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Get recent transactions for an Algorand address"
+          }
+        },
+        {
+          "name": "Get Asset Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://testnet-api.algonode.cloud/v2/assets/{{ASSET_ID}}",
+              "protocol": "https",
+              "host": ["testnet-api", "algonode", "cloud"],
+              "path": ["v2", "assets", "{{ASSET_ID}}"]
+            },
+            "description": "Get information about a specific Algorand asset"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Solana",
+      "item": [
+        {
+          "name": "Get Balance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"getBalance\",\n  \"params\": [\"{{SOLANA_ADDRESS}}\"]\n}"
+            },
+            "url": {
+              "raw": "https://api.devnet.solana.com",
+              "protocol": "https",
+              "host": ["api", "devnet", "solana", "com"]
+            },
+            "description": "Get SOL balance for a Solana address"
+          }
+        },
+        {
+          "name": "Get Account Info",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"getAccountInfo\",\n  \"params\": [\n    \"{{SOLANA_ADDRESS}}\",\n    {\n      \"encoding\": \"jsonParsed\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "https://api.devnet.solana.com",
+              "protocol": "https",
+              "host": ["api", "devnet", "solana", "com"]
+            },
+            "description": "Get detailed account information for a Solana address"
+          }
+        },
+        {
+          "name": "Get Recent Transactions",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"getSignaturesForAddress\",\n  \"params\": [\n    \"{{SOLANA_ADDRESS}}\",\n    {\n      \"limit\": 10\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "https://api.devnet.solana.com",
+              "protocol": "https",
+              "host": ["api", "devnet", "solana", "com"]
+            },
+            "description": "Get recent transaction signatures for a Solana address"
+          }
+        },
+        {
+          "name": "Request Airdrop",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"requestAirdrop\",\n  \"params\": [\n    \"{{SOLANA_ADDRESS}}\",\n    1000000000\n  ]\n}"
+            },
+            "url": {
+              "raw": "https://api.devnet.solana.com",
+              "protocol": "https",
+              "host": ["api", "devnet", "solana", "com"]
+            },
+            "description": "Request 1 SOL airdrop on devnet"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ethereum (via Alchemy)",
+      "item": [
+        {
+          "name": "Get Balance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"eth_getBalance\",\n  \"params\": [\"{{ETH_ADDRESS}}\", \"latest\"]\n}"
+            },
+            "url": {
+              "raw": "https://eth-sepolia.g.alchemy.com/v2/{{ALCHEMY_KEY}}",
+              "protocol": "https",
+              "host": ["eth-sepolia", "g", "alchemy", "com"],
+              "path": ["v2", "{{ALCHEMY_KEY}}"]
+            },
+            "description": "Get ETH balance for an Ethereum address on Sepolia testnet"
+          }
+        },
+        {
+          "name": "Get Transaction Count",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"eth_getTransactionCount\",\n  \"params\": [\"{{ETH_ADDRESS}}\", \"latest\"]\n}"
+            },
+            "url": {
+              "raw": "https://eth-sepolia.g.alchemy.com/v2/{{ALCHEMY_KEY}}",
+              "protocol": "https",
+              "host": ["eth-sepolia", "g", "alchemy", "com"],
+              "path": ["v2", "{{ALCHEMY_KEY}}"]
+            },
+            "description": "Get transaction count (nonce) for an Ethereum address"
+          }
+        },
+        {
+          "name": "Get Transaction by Hash",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"eth_getTransactionByHash\",\n  \"params\": [\"{{TX_HASH}}\"]\n}"
+            },
+            "url": {
+              "raw": "https://eth-sepolia.g.alchemy.com/v2/{{ALCHEMY_KEY}}",
+              "protocol": "https",
+              "host": ["eth-sepolia", "g", "alchemy", "com"],
+              "path": ["v2", "{{ALCHEMY_KEY}}"]
+            },
+            "description": "Get transaction details by hash"
+          }
+        },
+        {
+          "name": "Get Block Number",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"eth_blockNumber\",\n  \"params\": []\n}"
+            },
+            "url": {
+              "raw": "https://eth-sepolia.g.alchemy.com/v2/{{ALCHEMY_KEY}}",
+              "protocol": "https",
+              "host": ["eth-sepolia", "g", "alchemy", "com"],
+              "path": ["v2", "{{ALCHEMY_KEY}}"]
+            },
+            "description": "Get current block number"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Backend API",
+      "item": [
+        {
+          "name": "Get Charities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BACKEND_URL}}/charities/",
+              "host": ["{{BACKEND_URL}}"],
+              "path": ["charities", ""]
+            },
+            "description": "Get list of all charities"
+          }
+        },
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BACKEND_URL}}/users/{{WALLET_ADDRESS}}/",
+              "host": ["{{BACKEND_URL}}"],
+              "path": ["users", "{{WALLET_ADDRESS}}", ""]
+            },
+            "description": "Get user profile by wallet address"
+          }
+        },
+        {
+          "name": "Create Donation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"charity_id\": 1,\n  \"donor_address\": \"{{WALLET_ADDRESS}}\",\n  \"amount\": \"0.1\",\n  \"transaction_hash\": \"0x...\",\n  \"chain\": \"ethereum\"\n}"
+            },
+            "url": {
+              "raw": "{{BACKEND_URL}}/donations/",
+              "host": ["{{BACKEND_URL}}"],
+              "path": ["donations", ""]
+            },
+            "description": "Record a new donation"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WalletConnect",
+      "item": [
+        {
+          "name": "Get Session",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://relay.walletconnect.com",
+              "protocol": "https",
+              "host": ["relay", "walletconnect", "com"]
+            },
+            "description": "WalletConnect relay endpoint"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "ALGORAND_ADDRESS",
+      "value": "YOUR_ALGORAND_ADDRESS",
+      "type": "string"
+    },
+    {
+      "key": "SOLANA_ADDRESS",
+      "value": "YOUR_SOLANA_ADDRESS",
+      "type": "string"
+    },
+    {
+      "key": "ETH_ADDRESS",
+      "value": "YOUR_ETH_ADDRESS",
+      "type": "string"
+    },
+    {
+      "key": "ALCHEMY_KEY",
+      "value": "YOUR_ALCHEMY_KEY",
+      "type": "string"
+    },
+    {
+      "key": "BACKEND_URL",
+      "value": "http://localhost:8000/api",
+      "type": "string"
+    },
+    {
+      "key": "WALLET_ADDRESS",
+      "value": "YOUR_WALLET_ADDRESS",
+      "type": "string"
+    },
+    {
+      "key": "TX_HASH",
+      "value": "YOUR_TX_HASH",
+      "type": "string"
+    },
+    {
+      "key": "ASSET_ID",
+      "value": "YOUR_ASSET_ID",
+      "type": "string"
+    }
+  ]
+}
